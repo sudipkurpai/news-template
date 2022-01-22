@@ -89,7 +89,7 @@ if(mysqli_num_rows($r)>0){
 
    }
 }else{
-   echo "<h2> NO Record Found</h2>";
+   echo "<h2> NO Record Found </h2>";
 }
 
 ?>
