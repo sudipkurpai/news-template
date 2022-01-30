@@ -14,5 +14,5 @@ $res= mysqli_query($con,$sql);
 $r=mysqli_fetch_assoc($res);
 //echo $r['title_logo'];
 $img= "admin/images/".$r['title_logo'];
-
+//hii
 ?>
