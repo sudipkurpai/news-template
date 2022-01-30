@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/mrdevelo/public_html/
+    - export DEPLOYPATH=/home/mrdevelo/public_html/sudipmaiti.tk/
     - /bin/cp * $DEPLOYPATH
