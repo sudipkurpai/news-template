@@ -52,7 +52,7 @@ $head=mysqli_fetch_assoc($r);
         if($head['logo']==""){
             echo $head['websitename'];
         }else{
-            echo "<a href='post.php'><img class='logo' src='images/".$head["logo"] . "' width='35' height='50'> </a>";
+            echo "<a href='post.php'><img class='logo' src='images/".$head["logo"] . "'  width='35' height='50'> </a>";
         }
 
         ?>
