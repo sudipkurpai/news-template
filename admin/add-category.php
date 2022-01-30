@@ -2,7 +2,7 @@
 include "conn.php";
 
 if($_SESSION['role']==0){
-    header("Location: http://localhost/news-template/admin/post.php");
+    header("Location: {$host}/admin/post.php");
     }
 ?>
 
@@ -17,7 +17,7 @@ $c=$_POST['cat'];
 if(mysqli_query($con,$sql)){
     //echo "hello";
 
-header("Location: http://localhost/news-template/admin/category.php");
+header("Location: {$host}/admin/category.php");
 }else{
     echo " hello";
 }

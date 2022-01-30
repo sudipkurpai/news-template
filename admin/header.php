@@ -31,6 +31,7 @@ $head=mysqli_fetch_assoc($r);
 
 
         <title><?php echo $head['websitename']." ADMIN Panel"?></title>
+        <link rel = "icon" href = "<?php echo $img ?>" type = "image/x-icon">
         <!-- Bootstrap -->
         <link rel="stylesheet" href="../css/bootstrap.min.css" />
         <!-- Font Awesome Icon -->

@@ -2,7 +2,7 @@
 
 
 if($_SESSION['role']==0){
-    header("Location: http://localhost/news-template/admin/post.php");
+    header("Location: {$host}/admin/post.php");
     }
 include "conn.php";
 ?>
@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
        if(mysqli_query($con,$sql1)){
           // echo "hello";
 
-header("Location: http://localhost/news-template/admin/users.php");
+header("Location: {$host}/admin/users.php");
 
 
        }

@@ -95,6 +95,8 @@ default :
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title><?php echo $tt ?></title>
+    <link rel = "icon" href = "<?php echo $img ?>" type = "image/x-icon">
+  
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <!-- Font Awesome Icon -->

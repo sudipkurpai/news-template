@@ -1,7 +1,7 @@
 <?php 
 
 if($_SESSION['role']==0){
-    header("Location: http://localhost/news-template/admin/post.php");
+    header("Location: {$host}/admin/post.php");
     }
 
 include "conn.php" ;

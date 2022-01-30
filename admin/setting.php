@@ -51,17 +51,62 @@ if(empty($_FILES['new-image']['name'])){
     }
 
     $sql1 = "SELECT * FROM settings  WHERE id = 1";
- $result = mysqli_query($con, $sql1) or die("Query Failed : Select");
- $row = mysqli_fetch_assoc($result);
+    $result = mysqli_query($con, $sql1) or die("Query Failed : Select");
+    $row = mysqli_fetch_assoc($result);
+   
+    unlink("images/".$row['logo']);
 
- unlink("images/".$row['logo']);
-
-$wbn= $_POST['postdesc'];
 }
+
+    if(empty($_FILES['new-tlogo']['name'])){
+        $fname1 = $_POST['old-tlogo'];
+    
+    }else{
+        $errors1 = array();
+        $fname1=$_FILES['new-tlogo'] ["name"];
+        
+        $f_size1=$_FILES['new-tlogo'] ["size"];
+        
+        $f_tmp1=$_FILES['new-tlogo'] ["tmp_name"];
+        
+        $f_typ1=$_FILES['new-tlogo'] ["type"];
+        
+        $jj1=explode('.',$fname1);
+        $f_ext1=end($jj1);
+        
+        $ext1= array("jpeg","jpg","png");
+        
+        if(in_array($f_ext1,$ext1)===false){
+        
+            $errors1[]= "This Extension file not allowed, Please choose a Jpg or Png file";
+        }
+        if($f_size1>2098000){
+            $errors1[]= "File Size Must be 2mb or lower";
+        }
+        
+        if(empty($errors1)==true){
+        move_uploaded_file($f_tmp1,"images/".$fname1);
+        
+        }else{
+        
+            echo $errors1;
+            die();
+        }
+        $sql1a = "SELECT * FROM settings  WHERE id = 1";
+    $resulta = mysqli_query($con, $sql1a) or die("Query Failed : Select");
+    $rowa = mysqli_fetch_assoc($resulta);
+    unlink("images/".$rowa['title_logo']);
+    }
+
+   
+ 
+
+    
+
 
 //UPDATE `settings` SET `id`='[value-1]',`websitename`='[value-2]',`logo`='[value-3]',`footerdesc`='[value-4]' WHERE 1
 
-$sql2= "UPDATE settings SET websitename='{$_POST['wb_n']}',footerdesc='{$_POST['postdesc']}',logo='{$fname}' WHERE id = 1 ";
+ $sql2= "UPDATE settings SET websitename='{$_POST['wb_n']}',footerdesc='{$_POST['postdesc']}',title_logo ='{$fname1}', logo='{$fname}' WHERE id = 1 ";
 $res4=mysqli_query($con,$sql2);
 
 
@@ -130,6 +175,13 @@ if($res4){
                 <input type="file" name="new-image">
                 <img  src="images/<?php echo $row['logo']; ?>" height="150px">
                 <input type="hidden" name="old-image" value="<?php echo $row['logo']; ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="">Website Title Logo</label>
+                <input type="file" name="new-tlogo">
+                <img  src="images/<?php echo $row['title_logo']; ?>" height="150px">
+                <input type="hidden" name="old-tlogo" value="<?php echo $row['title_logo']; ?>">
             </div>
 
             <div class="form-group">
